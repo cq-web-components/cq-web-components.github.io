@@ -45,7 +45,8 @@
       "isAccessibleForFree": false,
       "offers": {
         "@type": "Offer",
-        "availability": "https://schema.org/InvitationOnly"
+        "availability": "https://schema.org/LimitedAvailability",
+        "description": "Access by invitation only"
       },
       "about": {
         "@type": "Thing",
@@ -302,7 +303,10 @@
     </div>
     
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Set dynamic copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
     </script>
 </body>
 </html>
