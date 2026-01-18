@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>CQ Web Components Course - Invitation Only</title>
+    <meta name="title" content="CQ Web Components Course - Invitation Only">
+    <meta name="description" content="An exclusive, invitation-only course on modern Web Components development. Learn to build powerful, reusable custom elements with cutting-edge web standards.">
+    <meta name="keywords" content="web components, custom elements, shadow dom, HTML templates, component architecture, invitation only, exclusive course">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="CQ Web Components">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cq-web-components.github.io/">
+    <meta property="og:title" content="CQ Web Components Course - Invitation Only">
+    <meta property="og:description" content="An exclusive, invitation-only course on modern Web Components development. Learn to build powerful, reusable custom elements with cutting-edge web standards.">
+    <meta property="og:site_name" content="CQ Web Components">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cq-web-components.github.io/">
+    <meta property="twitter:title" content="CQ Web Components Course - Invitation Only">
+    <meta property="twitter:description" content="An exclusive, invitation-only course on modern Web Components development. Learn to build powerful, reusable custom elements with cutting-edge web standards.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%270.9em%27 font-size=%2790%27%3E🎓%3C/text%3E%3C/svg%3E">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "CQ Web Components Course",
+      "description": "An exclusive, invitation-only course on modern Web Components development",
+      "provider": {
+        "@type": "Organization",
+        "name": "CQ Web Components"
+      },
+      "educationalLevel": "Advanced",
+      "isAccessibleForFree": false,
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/LimitedAvailability",
+        "description": "Access by invitation only"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Web Components"
+      }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --card-background: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--background);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .invitation-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .invitation-notice {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .invitation-notice h2 {
+            color: #92400e;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .invitation-notice p {
+            color: #78350f;
+            line-height: 1.8;
+        }
+        
+        .features {
+            margin-top: 40px;
+        }
+        
+        .features h2 {
+            font-size: 1.75rem;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+        
+        .feature-list {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .feature-item {
+            background: var(--card-background);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .icon {
+            font-size: 1.5rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 40px;
+            background: var(--card-background);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .header,
+            .content {
+                padding: 40px 25px;
+            }
+            
+            .invitation-notice {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="invitation-badge">🔐 Invitation Only</div>
+            <h1>CQ Web Components Course</h1>
+            <p class="subtitle">Master the Art of Modern Web Components</p>
+        </header>
+        
+        <main class="content">
+            <div class="invitation-notice">
+                <h2>
+                    <span class="icon">✨</span>
+                    Exclusive Access Required
+                </h2>
+                <p>
+                    This is an <strong>invitation-only course</strong> designed for select developers who want to master Web Components. 
+                    Access is granted by invitation to ensure a high-quality learning experience for all participants.
+                </p>
+            </div>
+            
+            <section class="features">
+                <h2>What You'll Learn</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3>
+                            <span class="icon">🧩</span>
+                            Custom Elements
+                        </h3>
+                        <p>
+                            Create powerful, reusable custom HTML elements that extend the capabilities of standard HTML.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <h3>
+                            <span class="icon">🎭</span>
+                            Shadow DOM
+                        </h3>
+                        <p>
+                            Master encapsulation and style isolation with Shadow DOM for truly modular components.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <h3>
+                            <span class="icon">📋</span>
+                            HTML Templates
+                        </h3>
+                        <p>
+                            Leverage HTML templates and slots to build flexible, composable component architectures.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <h3>
+                            <span class="icon">🚀</span>
+                            Best Practices
+                        </h3>
+                        <p>
+                            Learn industry best practices for building performant, accessible, and maintainable Web Components.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> CQ Web Components. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Set dynamic copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
